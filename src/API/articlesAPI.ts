@@ -1,5 +1,11 @@
 import axios from "axios";
 
+import { Article } from 'redux/types';
+
+type GetArticlesResponse = {
+    data: Article[];
+  };
+
 const instance = axios.create({
     baseURL: 'https://api.spaceflightnewsapi.net/v3',
     headers: {
@@ -11,7 +17,7 @@ const instance = axios.create({
 
 export const getArticles = async () => {
     try {
-        const {data} = await instance.get(
+        const {data} = await instance.get<GetArticlesResponse>(
             '/articles'
         );
 

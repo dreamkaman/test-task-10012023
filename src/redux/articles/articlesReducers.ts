@@ -1,33 +1,14 @@
 import { createReducer, combineReducers } from "@reduxjs/toolkit";
 
-interface Launch {
-  id: string,
-  provider: string
-};
+import {Launch, Event, Article} from '../types';
 
-interface Event {
-  id: string,
-  provider: string
-}
 
-interface Article {
-  id: number,
-  featured: boolean,
-  title: string,
-  url: string,
-  imageUrl: string,
-  newsSite: string,
-  summary: string,
-  publishedAt: string,
-  launches: Launch[],
-  events: Event[]
-};
 
 const initialStateEntities: Article[] = [];
 
 const entities = createReducer(initialStateEntities, {
   "articles/get/pending": () => [],
-  "articles/get/fulfilled": (_, { payload }) => [...payload],
+  "articles/get/fulfilled": (_, {payload}) => payload,
   "articles/get/rejected": (state: Article[]) => state,
 });
 

@@ -9,16 +9,14 @@ import { getAllArticlesOperation } from 'redux/articles/articleOperations';
 import './App.css';
 
 const App = () => {
+
   const dispatch = useAppDispatch();
 
-  const [articles, setArticles] = useState([]);
+  useEffect(() => {
 
-  // useEffect(() => {
+    dispatch(getAllArticlesOperation());
+  }, [dispatch]);
 
-  //   dispatch(getAllArticlesOperation());//Fix this error
-  // }, [dispatch]);
-
-  console.log(articles);
 
   return <>
     <Header />
