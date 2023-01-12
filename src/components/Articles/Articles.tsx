@@ -1,11 +1,20 @@
-// import ArticleCard from "./components/ArticleCard";
+import { Grid } from '@mui/material';
 
-import s from './Article.module.scss';
+import ArticleCards from './components/ArticleCards';
+import { useAppSelector } from 'redux/hooks';
 
-// const mokArticles=[];
+import { articlesArray } from 'redux/articles/articlesSelectors';
 
-const Articles=()=>{
-    return <ul className={s.articlesList}>Hello Articles</ul>
+// import s from './Article.module.scss';
+
+
+const Articles = () => {
+    const articles = useAppSelector(articlesArray);
+    console.log(articles);
+
+    return <Grid container spacing={25}>
+        <ArticleCards />
+    </Grid>
 }
 
 export default Articles;
