@@ -1,7 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 
+import { articlesReducer } from './articles/articlesReducers';
+
+
 export const store = configureStore({
     reducer: {
+      articles:articlesReducer,
     },
     devTools: process.env.NODE_ENV === 'development',
   });

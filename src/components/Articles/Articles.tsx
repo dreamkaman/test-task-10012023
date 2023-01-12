@@ -1,11 +1,14 @@
-// import ArticleCard from "./components/ArticleCard";
+import { Grid } from '@mui/material';
 
-import s from './Article.module.scss';
+import ArticleCard from './components/ArticleCard';
 
-// const mokArticles=[];
+// import s from './Article.module.scss';
 
-const Articles=()=>{
-    return <ul className={s.articlesList}>Hello Articles</ul>
+
+const Articles = () => {
+    return <Grid container spacing={5}>
+        <ArticleCard />
+    </Grid>
 }
 
 export default Articles;

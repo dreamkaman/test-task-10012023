@@ -1,5 +1,8 @@
-const ArticleCard=()=>{
-    return <p>Hello ArticleCard</p>
+import Grid from "@mui/material/Grid";
+
+const ArticleCard = () => {
+    return <Grid item xs={6}>
+    </Grid>
 }
 
 export default ArticleCard;
