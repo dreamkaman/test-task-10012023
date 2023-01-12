@@ -1,1 +1,0 @@
-export const articlesArray=(state)=>state.articles.entities;

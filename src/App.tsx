@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from 'redux/hooks';
 
 import Header from 'components/Header';
 import Articles from 'components/Articles';
@@ -9,14 +9,14 @@ import { getAllArticlesOperation } from 'redux/articles/articleOperations';
 import './App.css';
 
 const App = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const [articles, setArticles] = useState([]);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    // dispatch(getAllArticlesOperation());//Fix this error
-  }, []);
+  //   dispatch(getAllArticlesOperation());//Fix this error
+  // }, [dispatch]);
 
   console.log(articles);
 
