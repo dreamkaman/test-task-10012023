@@ -2,7 +2,7 @@ import axios from "axios";
 
 import { Article } from 'redux/types';
 
-type GetArticlesResponse = {
+export type GetArticlesResponse = {
     data: Article[];
   };
 

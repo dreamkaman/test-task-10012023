@@ -1,16 +1,18 @@
 import { FC } from 'react';
 
-import sprite from 'images/swg/sprite.svg';
+import sprite from 'images/sprite.svg';
+
+import s from './GetSvg.module.scss';
 
 interface GetSvgProps {
     name: string;
-    className: string;
+    className?: string;
 }
 
-const GetSvg: FC<GetSvgProps> = ({ name, className }) => {
+const GetSvg: FC<GetSvgProps> = ({ name, className = 'defaultSvg' }) => {
     return (
-        <svg className={className}>
-            <use href={sprite + name} />
+        <svg className={s[className]}>
+            <use href={sprite + `#${name}`} />
         </svg>
     );
 };

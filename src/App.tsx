@@ -1,10 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useAppDispatch } from 'redux/hooks';
 
-import Header from 'components/Header';
-import Articles from 'components/Articles';
+import { Routes } from 'react-router-dom';
+import { Route } from 'react-router';
+
 
 import { getAllArticlesOperation } from 'redux/articles/articleOperations';
+
+import HomePage from 'features/HomePage/HomePage';
+import ArticlePage from 'features/ArticlePage';
 
 import './App.css';
 
@@ -18,11 +22,12 @@ const App = () => {
   }, [dispatch]);
 
 
-  return <>
-    <Header />
-    <Articles />
+  return <Routes>
+    <Route path='/' element={<HomePage />} />
+    <Route path='/:id' element={<ArticlePage />} />
+  </Routes>
 
-  </>;
+
 }
 
 export default App;
