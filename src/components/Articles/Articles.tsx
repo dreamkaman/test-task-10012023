@@ -1,19 +1,29 @@
+import { FC } from 'react';
 import { Grid } from '@mui/material';
 
-import ArticleCards from './components/ArticleCards';
 import { useAppSelector } from 'redux/hooks';
-
 import { articlesArray } from 'redux/articles/articlesSelectors';
+
+import ArticleCard from './components/ArticleCard';
+import { Article } from 'redux/types';
 
 // import s from './Article.module.scss';
 
 
-const Articles = () => {
-    const articles = useAppSelector(articlesArray);
-    console.log(articles);
+const Articles: FC = () => {
+    const articles: Article[] = useAppSelector(articlesArray);
 
-    return <Grid container spacing={25}>
-        <ArticleCards />
+    return <Grid
+        container
+        position='static'
+        sx={{ gap: '45px',
+        width: '1440px',
+        padding: '45px 75px',
+        marginLeft:'auto',
+        marginRight:'auto' }}>
+        {articles.map((article) => (
+            <ArticleCard key={article.id} article={article} />
+        ))}
     </Grid>
 }
 

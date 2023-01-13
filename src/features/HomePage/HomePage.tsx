@@ -1,9 +1,11 @@
-// import { FC } from 'react';
+import Header from "components/Header";
+import Articles from "components/Articles";
 
 const HomePage = () => {
-    console.log()
-
-    return (<p>Hello</p>)
+    return <>
+        <Header />
+        <Articles />
+    </>
 }
 
 export default HomePage;
