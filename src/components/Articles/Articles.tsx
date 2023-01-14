@@ -7,9 +7,6 @@ import { articlesArray } from 'redux/articles/articlesSelectors';
 import ArticleCard from './components/ArticleCard';
 import { Article } from 'redux/types';
 
-// import s from './Article.module.scss';
-
-
 const Articles: FC = () => {
     const articles: Article[] = useAppSelector(articlesArray);
 
