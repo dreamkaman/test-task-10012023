@@ -1,32 +1,30 @@
-import { Button, Typography } from '@mui/material';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
+import { Button, Typography } from '@mui/material';
 import GetSvg from 'shared/GetSvg';
 
-import { articlesArray } from 'redux/articles/articlesSelectors';
-import { useAppSelector } from 'redux/hooks';
 import { Article } from 'redux/types';
 import * as api from 'API/articlesAPI';
 
 import s from './ArticlePage.module.scss';
 
 const ArticlePage = () => {
+    const [foundArticle, setFoundArticle] = useState<Article>();
     const { id = '' } = useParams();
 
     const navigate = useNavigate();
 
-    const articles: Article[] = useAppSelector(articlesArray);
-
-    let foundArticle = articles.find((article) => article.id === Number(id));
-
-    if (!articles?.length) {
+    useEffect(() => {
         api.getArticleById(id)
             .then((data) => {
                 console.log(data);
 
-                foundArticle = data as unknown as Article
+                setFoundArticle(data);
             });
-    }
+    }, [id]);
+
+
 
     const onClickBackHandle = () => {
         navigate('/');
@@ -41,11 +39,11 @@ const ArticlePage = () => {
                 <Typography
                     component='h5'
                     sx={{
-                        mb:'50px',
+                        mb: '50px',
                         fontSize: '24px',
                         lineHeight: '1.22',
                         fontFamily: 'inherit',
-                        textAlign:'center',
+                        textAlign: 'center',
                         color: '#363636'
 
                     }}
