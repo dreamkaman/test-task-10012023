@@ -18,5 +18,6 @@ export interface Launch {
     summary: string,
     publishedAt: string,
     launches: Launch[],
-    events: Event[]
+    events: Event[],
+    rating?:number
   };

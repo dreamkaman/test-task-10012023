@@ -27,6 +27,7 @@ const Filter = () => {
         } else {
             dispatch(getArticlesByFilterValueOperation(filter));
         }
+
     }
 
     return <>

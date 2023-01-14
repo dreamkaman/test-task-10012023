@@ -17,5 +17,4 @@ const GetSvg: FC<GetSvgProps> = ({ name, className = 'defaultSvg' }) => {
     );
 };
 
-// Usage: <GetIcon name="svgName" width={svgWidth} height={svgHeight} classname={svgClassName}/>
 export default GetSvg;

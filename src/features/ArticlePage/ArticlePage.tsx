@@ -18,8 +18,6 @@ const ArticlePage = () => {
     useEffect(() => {
         api.getArticleById(id)
             .then((data) => {
-                console.log(data);
-
                 setFoundArticle(data);
             });
     }, [id]);
