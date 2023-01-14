@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC} from "react";
 import { useGlobalContext } from "Context";
 
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +19,7 @@ interface ArticleCardProps {
 const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
     const { filter } = useGlobalContext();
 
-    const filterArray=filter.split(' ');
+    const filterArray = filter.split(' ');
 
     const navigate = useNavigate();
 
@@ -66,11 +66,12 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                         mb: '20px',
                         fontFamily: 'inherit',
                     }}>
-                    {<Highlighter 
-                    highlightClassName={s.highlight}
-                    searchWords={filterArray} 
-                    autoEscape={true} 
-                    textToHighlight={article.title} />}
+                    {<Highlighter
+                        caseSensitive={true}
+                        highlightClassName={s.highlight}
+                        searchWords={filterArray}
+                        autoEscape={true}
+                        textToHighlight={article.title} />}
                 </Typography>
                 <Typography
                     variant="body2"
@@ -78,11 +79,12 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                     sx={{
                         fontFamily: 'inherit',
                     }}>
-                    {<Highlighter 
-                    highlightClassName={s.highlight}
-                    searchWords={filterArray} 
-                    autoEscape={true} 
-                    textToHighlight={cutText100(article.summary)} />}
+                    {<Highlighter
+                        caseSensitive={true}
+                        highlightClassName={s.highlight}
+                        searchWords={filterArray}
+                        autoEscape={true}
+                        textToHighlight={cutText100(article.summary)} />}
                 </Typography>
 
             </CardContent>

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import { Grid } from '@mui/material';
 
 import { useAppSelector } from 'redux/hooks';
@@ -13,12 +14,14 @@ const Articles: FC = () => {
     return <Grid
         container
         position='static'
-        sx={{ gap: '45px',
-        width: '1440px',
-        padding: '45px 75px',
-        marginLeft:'auto',
-        marginRight:'auto' }}
-        >
+        sx={{
+            gap: '45px',
+            width: '1440px',
+            padding: '45px 75px',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+        }}
+    >
         {articles.map((article) => (
             <ArticleCard key={article.id} article={article} />
         ))}

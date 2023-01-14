@@ -14,11 +14,15 @@ const instance = axios.create({
 
 export const getArticles = async () => {
     try {
-        const { data } = await instance.get<Article[]>(
-            '/articles'
+        const { data:articles } = await instance.get<Article[]>(
+            '/articles?_limit=99'
         );
 
-        return data;
+        const articlesWithRating = articles.map((article) => {
+            const rating = 0;
+            return { ...article, rating };
+        })
+        return articlesWithRating;
 
     } catch (error) {
         console.log(error);
@@ -52,7 +56,11 @@ export const getArticlesByFilterValue = async (filterValue: string) => {
             `/articles?_limit=99&title_containss=${filterValue}&summary_containss=${copyFilterValue}`
         );
 
-        return articles;
+        const articlesWithRating = articles.map((article) => {
+            const rating = 0;
+            return { ...article, rating };
+        })
+        return articlesWithRating;
 
     } catch (error) {
         console.log(error);
