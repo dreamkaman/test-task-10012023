@@ -23,12 +23,11 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
 
     return <Grid item>
         <Card sx={{
-            width: '398px',
+            width: '400px',
             height: '530px',
             borderRadius: '5px',
             border: '1px solid #EAEAEA',
             boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.05)',
-            // fontFamily:'Montserrat'
             fontFamily: 'var(--main-font-family)'
         }}>
             <CardMedia
