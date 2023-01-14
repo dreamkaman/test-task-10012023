@@ -15,7 +15,7 @@ const instance = axios.create({
 export const getArticles = async () => {
     try {
         const { data } = await instance.get<Article[]>(
-            '/articles'
+            '/articles?_limit=99'
         );
 
         return data;
