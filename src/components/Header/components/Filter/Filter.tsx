@@ -1,4 +1,4 @@
-import { FormEvent} from 'react';
+import { FormEvent } from 'react';
 import { useGlobalContext } from 'Context';
 
 import { getAllArticlesOperation, getArticlesByFilterValueOperation } from 'redux/articles/articleOperations';
@@ -34,7 +34,7 @@ const Filter = () => {
             <label className={s.filterLabel} htmlFor="filter">Filter by keywords</label>
             <input className={s.filterInput} type="text" name="filter" value={filter} onChange={onChangeFilterHandler} />
         </form>
-        <p className={s.results}>Results: {filter ? articles?.length : 0}</p>
+        <p className={s.results}>Results: {articles?.length}</p>
     </>
 }
 
