@@ -20,7 +20,8 @@ const Articles: FC = () => {
         width: '1440px',
         padding: '45px 75px',
         marginLeft:'auto',
-        marginRight:'auto' }}>
+        marginRight:'auto' }}
+        >
         {articles.map((article) => (
             <ArticleCard key={article.id} article={article} />
         ))}

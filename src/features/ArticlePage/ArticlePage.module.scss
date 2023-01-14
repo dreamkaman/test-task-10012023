@@ -1,0 +1,35 @@
+.imageWrapper {
+  height: 245px;
+  width: 100%;
+
+  overflow: hidden;
+
+  img {
+    display: block;
+    height: 100%;
+    // width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: cover;
+    object-position: 0 70%;
+  }
+}
+
+.wrapperAll {
+  position: absolute;
+  left: calc(50% - 1290px / 2);
+  top: 150px;
+
+  width: 1290px;
+  padding-bottom: 35px;
+
+  .wrapperText {
+    min-height: 450px;
+    margin-bottom: 35px;
+    padding: 35px 75px 45px;
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.05);
+  }
+}

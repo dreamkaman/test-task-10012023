@@ -21,14 +21,15 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
         navigate(`/${article.id}`);
     }
 
-    return <Grid item sx={{
-    }}>
+    return <Grid item>
         <Card sx={{
             width: '398px',
             height: '530px',
             borderRadius: '5px',
             border: '1px solid #EAEAEA',
-            boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.05)'
+            boxShadow: '0px 8px 24px rgba(0, 0, 0, 0.05)',
+            // fontFamily:'Montserrat'
+            fontFamily: 'var(--main-font-family)'
         }}>
             <CardMedia
                 sx={{ height: 217 }}
@@ -40,6 +41,7 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                 <Typography component='p' sx={{
                     ml: '8px',
                     fontSize: '14px',
+                    fontFamily: 'inherit',
                     lineHeight: '1.5'
                 }}>{convertDate(article.publishedAt)}</Typography>
             </div>
@@ -56,11 +58,17 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                     sx={{
                         minHeight: '86px',
                         lineHeight: '1.2',
-                        mb: '20px'
+                        mb: '20px',
+                        fontFamily: 'inherit',
                     }}>
                     {article.title}
                 </Typography>
-                <Typography variant="body2" color="text.secondary">
+                <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{
+                        fontFamily: 'inherit',
+                    }}>
                     {cutText100(article.summary)}
                 </Typography>
 
@@ -77,10 +85,13 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                         fontSize: '16px',
                         lineHeight: '1.5',
                         mr: '6px',
-                        fontStyle: 'normal',
+                        fontFamily: 'inherit',
+                        fontWeight: '700',
                         color: '#363636',
                         textTransform: 'none'
-                    }}>Read more</Button>
+                    }}>
+                    Read more
+                </Button>
             </CardActions>
         </Card>
     </Grid >

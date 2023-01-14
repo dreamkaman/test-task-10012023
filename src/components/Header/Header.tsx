@@ -1,7 +1,7 @@
 import Filter from './components/Filter';
 
 const Header = () => {
-    return <header className='container'>
+    return <header className='containerXl'>
         <Filter />
     </header>
 }
