@@ -1,6 +1,9 @@
 import { FC } from "react";
+import { useGlobalContext } from "Context";
+
 import { useNavigate } from 'react-router-dom';
 import { Grid, Card, CardMedia, CardContent, Typography, CardActions, Button } from "@mui/material";
+import Highlighter from 'react-highlight-words';
 import GetSvg from "shared/GetSvg";
 
 import { Article } from "redux/types";
@@ -14,6 +17,9 @@ interface ArticleCardProps {
 }
 
 const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
+    const { filter } = useGlobalContext();
+
+    const filterArray=filter.split(' ');
 
     const navigate = useNavigate();
 
@@ -60,7 +66,11 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                         mb: '20px',
                         fontFamily: 'inherit',
                     }}>
-                    {article.title}
+                    {<Highlighter 
+                    highlightClassName={s.highlight}
+                    searchWords={filterArray} 
+                    autoEscape={true} 
+                    textToHighlight={article.title} />}
                 </Typography>
                 <Typography
                     variant="body2"
@@ -68,7 +78,11 @@ const ArticleCard: FC<ArticleCardProps> = ({ article }) => {
                     sx={{
                         fontFamily: 'inherit',
                     }}>
-                    {cutText100(article.summary)}
+                    {<Highlighter 
+                    highlightClassName={s.highlight}
+                    searchWords={filterArray} 
+                    autoEscape={true} 
+                    textToHighlight={cutText100(article.summary)} />}
                 </Typography>
 
             </CardContent>

@@ -1,7 +1,11 @@
-.publicationDate{
-    display:flex;
-    align-items: center;
-    justify-content: flex-start;
+.publicationDate {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 
-    padding: 25px;
+  padding: 25px;
+}
+
+.highlight {
+  background-color: #fef96e;
 }

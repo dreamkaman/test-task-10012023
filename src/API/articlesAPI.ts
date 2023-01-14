@@ -39,4 +39,24 @@ export const getArticleById = async (id: string) => {
     }
 }
 
+export const getArticlesByFilterValue = async (filterValue: string) => {
+    try {
+        filterValue.trim();
+
+        const copyFilterValue = filterValue;
+
+        filterValue.replace(' ', '&title_containss=');
+        copyFilterValue.replace(' ', '&summary_containss=');
+
+        const { data: articles } = await instance.get<Article[]>(
+            `/articles?_limit=99&title_containss=${filterValue}&summary_containss=${copyFilterValue}`
+        );
+
+        return articles;
+
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 
