@@ -67,7 +67,6 @@ const ArticlePage = () => {
                     padding: 0,
                     fontSize: '16px',
                     lineHeight: '1.5',
-                    ml: '6px',
                     fontFamily: 'inherit',
                     fontWeight: '700',
                     color: '#363636',
